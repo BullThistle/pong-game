@@ -53,6 +53,14 @@ function update(dt){
     context.fillStyle = '#000';
     context.fillRect( 0, 0, canvas.width, canvas.height);
 
+    if(ball.x < 0 || ball.y > canvas.width){
+        ball.vel.x = -ball.vel.x;
+    }
+    if(ball.y < 0 || ball.y > canvas.width){
+        ball.vel.y = -ball.vel.y;
+    }
+
+
     context.fillStyle = '#fff';
     context.fillRect(ball.pos.x, ball.pos.y, ball.size.x, ball.size.y);
 }
