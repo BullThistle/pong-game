@@ -14,6 +14,14 @@ class Rect
         this.pos = new Vec;
         this.size = new Vec(w,h);
     }
+    get left()
+    {
+        return this.pos.x - this.size.x /2;
+    }
+    get right()
+    {
+        return this.pos.x - this.size /2;
+    }
 }
 
 class Ball extends Rect
