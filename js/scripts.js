@@ -31,10 +31,30 @@ console.log(ball);
 const canvas = document.getElementById('pong');
 const context = canvas.getContext('2d');
 
-context.fillStyle = '#000';
-context.fillRect( 0, 0, canvas.width, canvas.height);
+const ball = new Ball;
+ball.pos.x = Ball;
+ball.pos.y = 100;
+ball.pos.y = 50;
 
-context.fillStyle = '#fff';
-context.fillRect(0, 0, 10, 10);
+ball.vel.x = 100;
+ball.vel.y = 100;
 
 
+let lastTime;
+function callback(millis){
+    if(lastTime){
+        update(millis - lastTime) / 1000;
+    }
+    lastTime = millis;
+    requestAnimationFrame(callback);
+}
+
+function update(dt){
+    context.fillStyle = '#000';
+    context.fillRect( 0, 0, canvas.width, canvas.height);
+
+    context.fillStyle = '#fff';
+    context.fillRect(ball.pos.x, ball.pos.y, ball.size.x, ball.size.y);
+}
+
+callback();
